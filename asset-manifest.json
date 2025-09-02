@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CollabBoard/static/css/main.3510fbad.css",
+    "main.js": "/CollabBoard/static/js/main.f3f96f7f.js",
+    "static/js/453.0d05e3b4.chunk.js": "/CollabBoard/static/js/453.0d05e3b4.chunk.js",
+    "index.html": "/CollabBoard/index.html",
+    "main.3510fbad.css.map": "/CollabBoard/static/css/main.3510fbad.css.map",
+    "main.f3f96f7f.js.map": "/CollabBoard/static/js/main.f3f96f7f.js.map",
+    "453.0d05e3b4.chunk.js.map": "/CollabBoard/static/js/453.0d05e3b4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3510fbad.css",
+    "static/js/main.f3f96f7f.js"
+  ]
+}

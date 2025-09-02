@@ -1,70 +1,48 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
-const YOUR_TYPEFORM_URL = "https://8cj7x29yx4z.typeform.com/to/syKlJdIs"; // Replace with your Typeform URL
-const YOUR_FORM_ID = "syKlJdIs"; // Replace with your Typeform Form ID
-const YOUR_API_KEY =
-  "tfp_7oVnq5fdV2dfFo2JmyQoU5nDAuzREYCSbKAcMxAg4t2m_3sqavVgigFuwC4"; // Replace with your Typeform API key
+import React, { useEffect } from "react";
 
 const PollWithResults = () => {
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const fetchResults = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.typeform.com/forms/${YOUR_FORM_ID}/responses`,
-          {
-            headers: {
-              Authorization: `Bearer ${YOUR_API_KEY}`,
-            },
-          }
-        );
-        setResults(response.data.items);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching results:", error);
-        setLoading(false);
-      }
-    };
+    const script = document.createElement("script");
+    script.src = "https://cdn.strawpoll.com/dist/widgets.js";
+    script.async = true;
+    script.charset = "utf-8";
+    document.body.appendChild(script);
 
-    fetchResults();
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
-    <div className="h-[530px] border rounded-xl">
-      <h1 className="text-black font-semibold text-center text-lg border rounded-t-xl bg-white">
-        Poll
-      </h1>
+    <div
+      className="strawpoll-embed"
+      id="strawpoll_PKgleYODRZp"
+      style={{
+        height: "644px",
+        maxWidth: "640px",
+        width: "100%",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <iframe
-        src={YOUR_TYPEFORM_URL}
-        width="100%"
-        height="1200"
+        title="StrawPoll Embed"
+        id="strawpoll_iframe_PKgleYODRZp"
+        src="https://strawpoll.com/embed/PKgleYODRZp"
+        style={{
+          position: "static",
+          visibility: "visible",
+          display: "block",
+          width: "100%",
+          flexGrow: 1,
+        }}
         frameBorder="0"
-        allow="camera; microphone; autoplay; encrypted-media;"
         allowFullScreen
+        allowTransparency
       >
-        Loading…
+        Loading...
       </iframe>
-
-      <div className="text-black font-semibold text-center text-lg border rounded-b-xl bg-white">
-        ✌️✌️
-      </div>
-      {loading ? (
-        <div>Loading results...</div>
-      ) : (
-        <ul>
-          {results.map((result, index) => (
-            <li key={index}>
-              {/* Display results based on your Typeform structure */}
-              {result.answers.map((answer, idx) => (
-                <div key={idx}>{answer.text}</div>
-              ))}
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Chatbot = () => {
       document.body.appendChild(div);
       
       script.onload = () => {
-        window.chatbotConfig = ['21FCC960-8E43-4EBF-BE7F-66FFA59B35DD', 'onboarding_bot', {
+        window.chatbotConfig = ['', 'onboarding_bot', {
           apiHost: 'https://api-cf-ap-8.sendbird.com',
         }];
       };
